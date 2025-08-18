@@ -5,7 +5,7 @@ inputs:
   branch:
     description: 'The branch to deploy to'
     required: true
-    default: 'gh-pages'
+    default: 'main'
   folder: 
     description: 'The folder to deploy'
     required: true
