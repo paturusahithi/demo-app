@@ -25,7 +25,7 @@ jobs:
         run: npm run build
 
       - name: Deploy to GitHub Pages
-        uses: PaturuSahithi/github-pages-deploy-action@main
+        uses: paturusahithi/demo-app@main
         with:
           branch: gh-pages
           folder: build
