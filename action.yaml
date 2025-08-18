@@ -1,0 +1,20 @@
+name: 'My Deploy Action'
+description: 'An action to deplo your app to github pages'
+
+inputs:
+  branch:
+    description: 'The branch to deploy to'
+    required: true
+    default: 'gh-pages'
+  folder: 
+    description: 'The folder to deploy'
+    required: true
+    default: 'build'
+runs:
+  using: 'node16'
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@main
+    - name: Deploy to Github Pages
+      run:
+        echo "Deploying the app to GitHub Pages..."
