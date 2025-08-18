@@ -1,4 +1,4 @@
-name: Build 
+name: Deploy React App
 
 on:
   push:
@@ -6,27 +6,28 @@ on:
       - main
 
 jobs:
-  builds:
-    runs-on: 
+  build:
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@main
 
       - name: Set up Node.js
-        uses: actions/setup-mode@v3
+        uses: actions/setup-node@main
         with:
           node-version: '16'
-    
+
       - name: Install dependencies
         run: npm install
 
       - name: Build the app
         run: npm run build
 
-      - name: Deploy to github pages
-        uses: JamesIves/github-pages-action@v4
+      - name: Deploy to GitHub Pages
+        uses: PaturuSahithi/github-pages-deploy-action@main
         with:
           branch: gh-pages
           folder: build
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
