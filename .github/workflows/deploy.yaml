@@ -1,0 +1,32 @@
+name: Build 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  builds:
+    runs-on: 
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-mode@v3
+        with:
+          node-version: '16'
+    
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Deploy to github pages
+        uses: JamesIves/github-pages-action@v4
+        with:
+          branch: gh-pages
+          folder: build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  
