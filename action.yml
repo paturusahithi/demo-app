@@ -1,0 +1,12 @@
+name: 'Deploy React App to GitHub Pages'
+description: 'This action deploys a React app to GitHub Pages.'
+
+inputs:
+  example-input:
+    description: 'An example input for your action.'
+    required: true
+    default: 'default value'
+
+runs:
+  using: 'node12'
+  main: 'dist/main.js'
