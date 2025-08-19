@@ -2,10 +2,14 @@ name: 'Deploy React App to GitHub Pages'
 description: 'This action deploys a React app to GitHub Pages.'
 
 inputs:
-  example-input:
-    description: 'An example input for your action.'
+  branch:
+    description: 'The branch to deploy to (default: gh-pages).'
     required: true
-    default: 'default value'
+    default: 'gh-pages'
+  folder:
+    description: 'The folder containing the build files (default: build).'
+    required: true
+    default: 'build'
 
 runs:
   using: 'node12'
